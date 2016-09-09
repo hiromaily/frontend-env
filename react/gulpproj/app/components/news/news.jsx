@@ -74,6 +74,7 @@ export default class NewsBox extends React.Component {
       <div className='newsBox'>
         <h4>News</h4>
         {newsNodes}
+        <hr/>
       </div>
     )
   }

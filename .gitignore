@@ -1,0 +1,9 @@
+.DS_Store
+.idea/
+
+#react/gulpproj/node_modules
+node_modules
+npm-debug.log
+
+bundle.js
+app/dist/index.bundle.js

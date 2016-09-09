@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "browserify --debug --transform babelify main.js --outfile bundle.js",
+    "build": "browserify --debug --transform babelify app/src/index.js --outfile app/dist/index.bundle.js",
     "lint": "eslint src/*.js"
   },
   "dependencies": {

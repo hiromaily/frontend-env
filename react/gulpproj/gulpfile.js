@@ -6,12 +6,13 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var webserver = require('gulp-webserver');
 
-var firstFile = './index.js';
-var outFile = 'bundle.js';
+var inFile = './app/src/index.js';
+var outFile = './app/dist/index.bundle.js';
 
 //gulp.task('browserify', function() {
 gulp.task('release', function() {
-  browserify(firstFile, { debug: false }) //debug: true is for sourcemap
+  process.env.NODE_ENV = 'production';
+  browserify(inFile, { debug: false }) //debug: true is for sourcemap
     .transform(babelify)
     //.external('react')
     //.external('react-dom')
@@ -26,7 +27,7 @@ gulp.task('release', function() {
 });
 
 gulp.task('dev', function() {
-  browserify(firstFile, { debug: true }) //debug: true is for sourcemap
+  browserify(inFile, { debug: true }) //debug: true is for sourcemap
     .transform(babelify)
     .bundle()
     .on("error", function (err) { console.log("Error : " + err.message); })
@@ -37,11 +38,11 @@ gulp.task('dev', function() {
 gulp.task('watch', function() {
   //gulp.watch(/.jsx?$/, ['browserify'])
   //gulp.watch('./*.jsx', ['browserify'])
-  gulp.watch('**/*.jsx', ['release'])
+  gulp.watch('**/*.jsx', ['dev'])
 });
 
 gulp.task('web', function() {
-  gulp.src('./')
+  gulp.src('app')
     .pipe(webserver({
       host: '127.0.0.1',
       livereload: true
@@ -49,4 +50,5 @@ gulp.task('web', function() {
   );
 });
 
-gulp.task('default', ['bro', 'watch', 'web']);
+gulp.task('do', ['dev', 'watch', 'web']);
+gulp.task('default', ['release', 'watch', 'web']);

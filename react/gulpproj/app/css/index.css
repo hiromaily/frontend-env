@@ -1,0 +1,6 @@
+.block {
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+  transition: background-color 0.8s ease-in;
+}

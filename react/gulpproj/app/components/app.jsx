@@ -10,6 +10,7 @@ import MemoBox2  from './memos/memo_box2.jsx'
 import Timer     from './timer/timer.jsx'
 import Counter   from './counter/counter.jsx'
 import NewsBox   from './news/news.jsx'
+import ColorBox  from './colorbox/colorbox.jsx'
 
 var memoData = [
   {id:1, language: "Golang", rank: 1},
@@ -28,6 +29,8 @@ export default class App extends React.Component {
         <MemoBox />
         <br/>  
         <NewsBox url="/json/news" pollInterval={10000} />
+        <br/>
+        <ColorBox />
         <br/>
         <Counter />
         <br/>
