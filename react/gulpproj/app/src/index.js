@@ -1,1 +1,1 @@
-import App  from '../components/app.jsx'
+import App  from '../react/index/top.jsx'

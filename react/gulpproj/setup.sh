@@ -34,8 +34,10 @@ npm install -g gulp
 npm install -g gulp-babel
 npm install -g eslint
 npm install -g eslint-plugin-react
+npm install -g gulp-beautify
 
-npm i -S react react-dom
+npm i -S react react-dom flux
+
 
 npm i -D gulp
 npm i -D gulp-babel gulp-plumber
@@ -45,6 +47,7 @@ npm i -D babel-core babel-loader
 npm i -D babel-preset-es2015 babel-preset-react
 
 npm i -D browserify
+npm i -D browserify-shim
 npm i -D babelify
 npm i -D gulp-webserver
 npm i -D vinyl-source-stream

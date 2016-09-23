@@ -1,0 +1,594 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    {{template "components/header.tmpl" .}}
+  </head>
+  <body>
+    <div id="wrapper">
+      <!-- /. NAV TOP  -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ .title }}</title>
+    <!-- BOOTSTRAP STYLES-->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="/assets/css/font-awesome.css" rel="stylesheet" />
+    <!--CUSTOM BASIC STYLES-->
+    <link href="/assets/css/basic.css" rel="stylesheet" />
+    <!--CUSTOM MAIN STYLES-->
+    <link href="/assets/css/custom.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!-- alert -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.css">
+      <!-- /. NAV SIDE  -->
+      <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+          <ul class="nav" id="main-menu">
+            <li>
+              <div class="user-img-div">
+                <img src="/assets/img/users/user.png" class="img-thumbnail" />
+                <div class="inner-text">Hiroki Harry Yasui
+                  <br />
+                  <small>Last Login : 2 Weeks Ago </small>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a class="nav-menu" href="/">
+                <i class="fa fa-dashboard "></i>TOP Page
+              </a>
+            </li>
+            <li>
+              <a class="nav-menu" href="/news/">
+                <i class="fa fa-dashboard "></i>News Page
+              </a>
+            </li>
+            <li>
+              <a class="nav-menu" href="/apilist/">
+                <i class="fa fa-desktop "></i>API List Page
+              </a>
+            </li>
+            <li>
+              <a class="nav-menu" href="/login">
+                <i class="fa fa-dashboard "></i>Login Page
+              </a>
+            </li>
+            <li>
+              <a class="nav-menu" href="/logout" data-post="1" data-method="post">
+                <i class="fa fa-sign-in "></i>Logout
+              </a>
+            </li>
+            <li>
+              <a class="nav-menu" href="/logout" data-ajax="1" data-method="put">
+                <i class="fa fa-sign-in "></i>Logout(ajax)
+              </a>
+            </li>
+            <li>
+              <a class="nav-menu" href="/accounts/">
+                <i class="fa fa-square-o "></i>After Login Page
+              </a>
+            </li>
+            <li>
+              <a class="nav-menu" href="/admin/">
+                <i class="fa fa-square-o "></i>Admin Page
+              </a>
+            </li>
+            <!--
+            <li>
+              <a href="#">
+                <i class="fa fa-yelp "></i>Ajax Request
+                <span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-second-level">
+                <li>
+                  <a class="nav-menu" href="/api/users" data-ajax="1" data-method="get">
+                    <i class="fa fa-coffee"></i>Get User List
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-menu" href="/api/users" data-ajax="1" data-method="post" data-contype="form">
+                    <i class="fa fa-flash "></i>POST Register user
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-menu" href="/api/users/1" data-ajax="1" data-method="get">
+                    <i class="fa fa-key "></i>Get User 1
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-menu" href="/api/users/2" data-ajax="1" data-method="put" data-contype="json">
+                    <i class="fa fa-send "></i>Put Update User 1
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-menu" href="/api/users/47" data-ajax="1" data-method="delete">
+                    <i class="fa fa-recycle "></i>Delete User 5
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-desktop "></i>NEWS API
+                <span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-second-level">
+                <li>
+                  <a class="nav-menu" href="https://api.nytimes.com/svc/topstories/v2/home.json" data-ajax="2">
+                    <i class="fa fa-toggle-on"></i>V2 Stories - home
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-menu" href="https://api.nytimes.com/svc/topstories/v2/opinion.json" data-ajax="2">
+                    <i class="fa fa-toggle-on"></i>V2 Stories - opinion
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-menu" href="https://api.nytimes.com/svc/topstories/v2/world.json" data-ajax="2">
+                    <i class="fa fa-toggle-on"></i>V2 Stories - world
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-menu" href="https://api.nytimes.com/svc/topstories/v2/national.json" data-ajax="2">
+                    <i class="fa fa-toggle-on"></i>V2 Stories - national
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-menu" href="https://api.nytimes.com/svc/topstories/v2/politics.json" data-ajax="2">
+                    <i class="fa fa-toggle-on"></i>V2 Stories - politics
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-menu" href="https://api.nytimes.com/svc/topstories/v2/business.json" data-ajax="2">
+                    <i class="fa fa-toggle-on"></i>V2 Stories - business
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-menu" href="https://api.nytimes.com/svc/topstories/v2/technology.json" data-ajax="2">
+                    <i class="fa fa-toggle-on"></i>V2 Stories - technology
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-menu" href="https://api.nytimes.com/svc/topstories/v2/science.json" data-ajax="2">
+                    <i class="fa fa-toggle-on"></i>V2 Stories - science
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-menu" href="https://api.nytimes.com/svc/topstories/v2/health.json" data-ajax="2">
+                    <i class="fa fa-toggle-on"></i>V2 Stories - health
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-menu" href="https://api.nytimes.com/svc/topstories/v2/arts.json" data-ajax="2">
+                    <i class="fa fa-toggle-on"></i>V2 Stories - arts
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-menu" href="https://api.nytimes.com/svc/topstories/v2/fashion.json" data-ajax="2">
+                    <i class="fa fa-toggle-on"></i>V2 Stories - fashion
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-menu" href="https://api.nytimes.com/svc/topstories/v2/travel.json" data-ajax="2">
+                    <i class="fa fa-toggle-on"></i>V2 Stories - travel
+                  </a>
+                </li>
+              </ul>
+            </li>
+            -->
+
+          </ul>
+        </div>
+      </nav>
+<form id="form_active" action="/logout" method="POST"></form>
+<script type="text/javascript">
+(function (){
+  //navi color
+  var key={{ .navi_key }};
+  //class="active-menu-top"
+  //var el = document.querySelector("a.nav-menu");
+  var el = document.querySelectorAll("a.nav-menu");
+  for (var i = 0, len = el.length; i < len; i++) {
+    if (el[i].getAttribute('href') == key){
+      el[i].classList.add('active-menu');
+    }
+  }
+
+  //logout
+  //<a class="nav-menu" href="/logout" data-post="1" data-method="post">
+  function getPostElem(){
+    post_elem = document.querySelectorAll('a[data-post="1"]');
+    for (var i = 0, len = post_elem.length; i < len; i++) {
+      post_elem[i].addEventListener("click", onPost, false);
+    }
+  }
+
+  function getAjaxElem(){
+    ajax_elem = document.querySelectorAll('a[data-ajax="1"]');
+    for (var i = 0, len = ajax_elem.length; i < len; i++) {
+      ajax_elem[i].addEventListener("click", onAjax, false);
+    }
+  }
+
+  function onPost(e){
+    e.preventDefault();
+    sendPost(e.target.href);
+  }
+
+  function onAjax(e){
+    e.preventDefault();
+    //sendAjax(e.target.href, e.target.getAttribute('data-method'), e.target.getAttribute('data-contype'));
+    hy.sendAjax(e.target.href, e.target.getAttribute('data-method'), "form", "")
+  }
+
+  //send Post
+  function sendPost(url){
+    //form action
+    var form = document.getElementById("form_active");
+    form.action = url;
+    form.submit();
+  }
+
+
+document.addEventListener("DOMContentLoaded",getAjaxElem,false);
+document.addEventListener("DOMContentLoaded",getPostElem,false);
+})();
+</script>
+      <!-- -->
+      <div id="page-wrapper">
+        <div id="page-inner">
+          <!-- /. ROW 01 -->
+          <div class="row">
+            <div class="col-md-12">
+              <h1 class="page-head-line">{{ .title }}</h1>
+              <h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>
+            </div>
+          </div>
+
+          <!-- /. ROW user list -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>user_id</th>
+                                            <th>first_name</th>
+                                            <th>last_name</th>
+                                            <th>email</th>
+                                            <th>password</th>
+                                            <th>update_datetime</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="userListBody">
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <hr />
+                            </div>
+                        </div>
+          <!-- /. ROW FORM JWT -->
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="panel panel-primary">
+                <div class="panel-heading">JWT API</div>
+                <div class="panel-body">
+                  <form role="form">
+                    <div class="form-group">
+                      <label>E-mail</label>
+                      <input id="jwtEM" class="form-control" type="text" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                      <label>Password</label>
+                      <input id="jwtPW" class="form-control" type="password" autocomplete="off">
+                    </div>
+                    <button id="jwtBtn" type="button" class="btn btn-info">Get JWT</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="panel panel-info">
+                <div class="panel-heading">JWT CODE</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                      <label for="disabledInput">jwt code</label>
+                      <input id="jwtCode" class="form-control" id="disabledInput" type="text" placeholder="" disabled="">
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<script type="text/javascript">
+(function (){
+  var getBtn = document.getElementById("jwtBtn");
+  jwtBtn.addEventListener("click", getJWT, false);
+
+  //
+  function getJWT(evt){
+    //
+    var url = "/api/jwt";
+    var sendData = new Object();
+
+    //create data
+    var errFlg = 0;
+    //create data
+    if (document.getElementById("jwtEM").value != ""){
+      sendData.inputEmail = document.getElementById("jwtEM").value;
+    }else{
+        errFlg=1;
+    }
+    if (document.getElementById("jwtPW").value != ""){
+      sendData.inputPassword = document.getElementById("jwtPW").value;
+    }else{
+        errFlg=1;
+    }
+
+    if (errFlg==1){
+        swal("warning!", "blank filed is not allowed.", "warning");
+        return;
+    }
+
+    //send
+    hy.sendAjax(url, "post", "form", sendData)
+  }
+
+})();
+</script>
+          <!-- /. ROW FORM GET DELETE -->
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="panel panel-info">
+                <div class="panel-heading">GET API</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                      <label>Select user id</label>
+                      <select id="slctIds" class="form-control">
+                        <option>All</option>
+{{range .ids}}
+    <option>{{.ID}}</option>
+{{end}}
+                      </select>
+                    </div>
+                    <button id="getBtn" type="button" class="btn btn-info">Get User</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="panel panel-danger">
+                <div class="panel-heading">DELETE API</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                      <label>Select user id</label>
+                      <select id="slctDelIds" class="form-control">
+{{range .ids}}
+    <option>{{.ID}}</option>
+{{end}}
+                      </select>
+                    </div>
+                    <button id="delBtn" type="button" class="btn btn-danger">Delete User</button>
+                </div>
+              </div>
+            </div>
+          </div>
+<script type="text/javascript">
+(function (){
+  var getBtn = document.getElementById("getBtn");
+  var delBtn = document.getElementById("delBtn");
+  getBtn.addEventListener("click", getUserList, false);
+  delBtn.addEventListener("click", delUser, false);
+
+  //get select text
+  function getSelectText(id){
+    // Get Slect box text
+    var slctIds = document.getElementById(id);
+    var idx = slctIds.selectedIndex;
+    //var value = slctIds.options[idx].value;
+    var text  = slctIds.options[idx].text;
+
+    return text;
+  }
+
+  //
+  function getUserList(evt){
+    //
+    var url;
+    var sendData;
+    var id = getSelectText("slctIds");
+    if (id == "All"){
+        url = "/api/users";
+    }else{
+        url = "/api/users/" + id;
+    }
+
+    //create data
+
+    //send
+    hy.sendAjax(url, "get", "form", "")
+  }
+
+  function delUser(evt){
+    //
+    var id = getSelectText("slctDelIds");
+    var url = "/api/users/" + id;
+
+    //send
+    hy.sendAjax(url, "delete", "form", "")
+  }
+
+})();
+</script>
+          <!-- /. ROW FORM PUT POST -->
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="panel panel-primary">
+                <div class="panel-heading">PUT API</div>
+                <div class="panel-body">
+                    <div class="form-group"><!--has-error-->
+                      <label>User ID</label>
+                      <input id="putID" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                      <label>First Name</label>
+                      <input id="putFN" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                      <label>Last Name</label>
+                      <input id="putLN" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                      <label>E-mail</label>
+                      <input id="putEM" class="form-control" type="text" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                      <label>Password</label>
+                      <input id="putPW" class="form-control" type="password" autocomplete="off">
+                    </div>
+                    <button id="putBtn" type="button" class="btn btn-info">Update</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">POST API</div>
+                <div class="panel-body">
+                  <form role="form">
+                    <div class="form-group">
+                      <label>First Name</label>
+                      <input id="postFN" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                      <label>Last Name</label>
+                      <input id="postLN" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                      <label>E-mail</label>
+                      <input id="postEM" class="form-control" type="text" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                      <label>Password</label>
+                      <input id="postPW" class="form-control" type="password" autocomplete="off">
+                    </div>
+                    <button id="postBtn" type="button" class="btn btn-info">Register</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+<script type="text/javascript">
+(function (){
+  var putBtn = document.getElementById("putBtn");
+  var postBtn = document.getElementById("postBtn");
+  putBtn.addEventListener("click", putUser, false);
+  postBtn.addEventListener("click", postUser, false);
+
+
+  function putUser(evt){
+    var url;
+    var sendData = new Object();
+    var id = document.getElementById("putID").value;
+    if (id != "" && !isNaN(id)){
+        url = "/api/users/" + id;
+    }else{
+        //id error
+        console.log("id is invalid.");
+        swal("warning!", "user id is invalid.", "warning");
+        //TODO:add has-error class to group
+        return;
+    }
+
+    //create data
+    if (document.getElementById("putFN").value != ""){
+      sendData.firstName = document.getElementById("putFN").value;
+    }
+    if (document.getElementById("putLN").value != ""){
+      sendData.lastName = document.getElementById("putLN").value;
+    }
+    if (document.getElementById("putEM").value != ""){
+      sendData.email = document.getElementById("putEM").value;
+    }
+    if (document.getElementById("putPW").value != ""){
+      sendData.password = document.getElementById("putPW").value;
+    }
+
+    console.log(sendData)
+
+    //send
+    hy.sendAjax(url, "put", "form", sendData)
+  }
+
+  function postUser(evt){
+    var url = "/api/users";
+    var sendData = new Object();
+
+    var errFlg = 0;
+    //create data
+    if (document.getElementById("postFN").value != ""){
+      sendData.firstName = document.getElementById("postFN").value;
+    }else{
+        errFlg=1;
+    }
+    if (document.getElementById("postLN").value != ""){
+      sendData.lastName = document.getElementById("postLN").value;
+    }else{
+        errFlg=1;
+    }
+    if (document.getElementById("postEM").value != ""){
+      sendData.email = document.getElementById("postEM").value;
+    }else{
+        errFlg=1;
+    }
+    if (document.getElementById("postPW").value != ""){
+      sendData.password = document.getElementById("postPW").value;
+    }else{
+        errFlg=1;
+    }
+
+    //console.log(sendData)
+
+    if (errFlg==1){
+        swal("warning!", "blank filed is not allowed.", "warning");
+        return;
+    }
+
+    //send
+    hy.sendAjax(url, "post", "form", sendData)
+  }
+
+
+})();
+</script>
+        </div>
+        <!-- /. PAGE INNER  -->
+      </div>
+      <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <!-- /. Footer -->
+    <div id="footer-sec">&copy; 2014 YourCompany | Design By :
+      <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
+    </div>
+
+  <!-- /. FOOTER jslist -->
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!-- JQUERY SCRIPTS -->
+<script src="/assets/js/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="/assets/js/bootstrap.js"></script>
+<!-- METISMENU SCRIPTS -->
+<script src="/assets/js/jquery.metisMenu.js"></script>
+<!-- CUSTOM SCRIPTS -->
+<script src="/assets/js/custom.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.js"></script>
+
+<script type="text/javascript">
+var hiromaily_header = {{ .header }};
+var hiromaily_key = {{ .key }};
+</script>
+<script src="/statics/js/hiromaily.js"></script>
+
+</body>
+</html>
